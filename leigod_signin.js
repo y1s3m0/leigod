@@ -10,8 +10,8 @@ const md5 = require('js-md5');
 const userinfo = process.env.LEISHEN_USER || 'username=&password=';
 const repeat_notify = String(process.env.LEISHEN_REPEAT_NOTIFY || 'true').toLocaleLowerCase() === 'true';
 const Secrets = {
-    username: decodeURI(userinfo.split('&')[0].split('=')[1].trim()),
-    password: md5(decodeURI(userinfo.split('&')[1].split('=')[1].trim())),
+    username: decodeURIComponent(userinfo.split('&')[0].split('=')[1].trim()),
+    password: md5(decodeURIComponent(userinfo.split('&')[1].split('=')[1].trim())),
 }
 const headers = {
     'content-type': 'application/json; charset=utf-8',
